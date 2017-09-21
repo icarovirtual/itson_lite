@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Ligadão</string>
+
+    <!-- region Quick setting -->
+    <string name="quick_setting_label_off">Não tá ligadão</string>
+    <string name="quick_setting_label_on">Tela ligadona</string>
+    <!-- endregion -->
+
+    <!-- region Permission -->
+    <string name="permission_dialog" formatted="false">Ao contrário da maioria das apps, a %s mantém a tela ligada sem aumentar o consuma de bateria, precisando apenas que possa %s. Por favor libere esta permissão nas configuracões da app.</string>
+    <string name="permission_dialog_button">Mostre para mim</string>
+    <string name="permission_dialog_title">Sobre as permissões</string>
+    <string name="permission_snackbar" formatted="false">Libere \"%s\" para manter a tela ligada.</string>
+    <string name="permission_snackbar_action">Ajustar</string>
+    <!-- endregion -->
+
+    <!-- region Main activity -->
+    <string name="main_all_good_title">Tudo pronto!</string>
+    <string name="main_all_good_text">Só falta você alterar suas configurações rápidas e arrastar o bloco da Ligadão para adicioná-lo na área principal.</string>
+    <string name="main_all_good_button">Quer uma ajuda?</string>
+    <string name="main_all_good_button_error">Não foi possível mostrar o vídeo instrutivo. Por favor acesse %s para vê-lo.</string>
+    <string name="main_all_good_button_error_button">Fechar</string>
+    <string name="main_all_good_button_url">https://youtu.be/ZfOkuk6zwmI</string>
+    <string name="main_problem_title">Quase lá…</string>
+    <string name="main_problem_text">Precisamos da sua ajuda para definir as permissões para que seja possível manter a tela ligada.</string>
+    <string name="main_problem_button">Mais informações</string>
+    <!-- endregion -->
+
+    <!-- region Content Description -->
+    <string name="cd_check">Tudo certo</string>
+    <!-- endregion -->
+
+</resources>

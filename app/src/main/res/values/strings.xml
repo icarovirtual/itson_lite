@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">It\'s On</string>
+
+    <!-- region Quick setting -->
+    <string name="quick_setting_label_off">It\'s not on</string>
+    <string name="quick_setting_label_on">It\'s on!</string>
+    <!-- endregion -->
+
+    <!-- region Permission -->
+    <string name="permission_dialog_title">About permissions</string>
+    <string name="permission_dialog" formatted="false">Differently from most apps, %s can keep the screen on whilst not increasing battery usage, needing only to be allowed to %s.\nPlease allow this permission in the app settings.</string>
+    <string name="permission_dialog_button">Take me there</string>
+    <string name="permission_snackbar" formatted="false">\"%s\" needs to be allowed to keep the screen on.</string>
+    <string name="permission_snackbar_action">Adjust</string>
+    <!-- endregion -->
+
+    <!-- region Main activity -->
+    <string name="main_all_good_title">Ready to go!</string>
+    <string name="main_all_good_text">Now you just need to edit your quick settings and drag It\'s On\'s tile to add it to the main area.</string>
+    <string name="main_all_good_button">Need Help?</string>
+    <string name="main_all_good_button_error">Could not play instructional video. Please go to %s to watch it.</string>
+    <string name="main_all_good_button_error_button">Close</string>
+    <string name="main_all_good_button_url">https://youtu.be/R8BphXGlhzU</string>
+    <string name="main_problem_title">Almost ready…</string>
+    <string name="main_problem_text">We need your help setting up the permissions so we can keep the screen on.</string>
+    <string name="main_problem_button">More information</string>
+    <!-- endregion -->
+
+    <!-- region Content Description -->
+    <string name="cd_check">Check</string>
+    <!-- endregion -->
+
+</resources>

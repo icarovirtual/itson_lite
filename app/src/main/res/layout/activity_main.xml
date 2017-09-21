@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="br.not.sitedoicaro.itson.ui.activity.MainActivity">
+
+    <data>
+
+        <import type="android.view.View"/>
+
+        <variable
+            name="presenter"
+            type="br.not.sitedoicaro.itson.ui.presenter.MainActivityPresenter"/>
+
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="16dp">
+
+        <FrameLayout
+            android:id="@+id/layout_all_good"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="@{presenter.hasPermission ? View.VISIBLE : View.GONE}"
+            tools:visibility="visible">
+
+            <ImageView
+                android:layout_width="128dp"
+                android:layout_height="128dp"
+                android:layout_gravity="center"
+                android:layout_marginBottom="96dp"
+                android:contentDescription="@string/cd_check"
+                android:scaleType="fitStart"
+                android:src="@drawable/vc_all_good"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="16dp"
+                android:layout_marginEnd="32dp"
+                android:layout_marginStart="32dp"
+                android:gravity="center"
+                android:text="@string/main_all_good_title"
+                android:textSize="@dimen/material_text_title"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginEnd="32dp"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="24dp"
+                android:gravity="center"
+                android:text="@string/main_all_good_text"
+                android:textSize="@dimen/material_text_body1"/>
+
+            <Button
+                android:id="@+id/all_good_button"
+                style="@style/AppTheme.Button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="80dp"
+                android:onClick="@{() -> presenter.onAllGoodClick()}"
+                android:text="@string/main_all_good_button"/>
+
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/layout_problem"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="@{!presenter.hasPermission ? View.VISIBLE : View.GONE}"
+            tools:visibility="gone">
+
+            <ImageView
+                android:layout_width="128dp"
+                android:layout_height="128dp"
+                android:layout_gravity="center"
+                android:layout_marginBottom="96dp"
+                android:contentDescription="@string/cd_check"
+                android:scaleType="fitStart"
+                android:src="@drawable/vc_problem"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="16dp"
+                android:layout_marginEnd="32dp"
+                android:layout_marginStart="32dp"
+                android:gravity="center"
+                android:text="@string/main_problem_title"
+                android:textSize="@dimen/material_text_title"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginEnd="32dp"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="24dp"
+                android:gravity="center"
+                android:text="@string/main_problem_text"
+                android:textSize="@dimen/material_text_body1"/>
+
+            <Button
+                android:id="@+id/problem_button"
+                style="@style/AppTheme.Button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginEnd="32dp"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="80dp"
+                android:onClick="@{() -> presenter.onProblemClick()}"
+                android:text="@string/main_problem_button"/>
+
+        </FrameLayout>
+
+    </FrameLayout>
+
+</layout>

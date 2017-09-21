@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="colorPrimary">#ffeb3b</color>
+    <color name="colorPrimaryDark">#c8b900</color>
+    <color name="colorPrimaryLight">#ffff72</color>
+    <color name="colorAccent">#00bfa5</color>
+    <color name="colorAccentDark">#008e76</color>
+    <color name="colorAccentLight">#5df2d6</color>
+
+    <!-- region Material -->
+    <!-- Material guidelines for white on dark -->
+    <color name="light_on_dark_primary">#FFFFFFFF</color>
+    <color name="light_on_dark_secondary">#B3FFFFFF</color>
+    <color name="light_on_dark_disabled_hint">#80FFFFFF</color>
+    <color name="light_on_dark_divider">#1FFFFFFF</color>
+
+    <!-- Material guidelines for dark on white -->
+    <color name="dark_on_light_primary">#DE000000</color>
+    <color name="dark_on_light_secondary">#8A000000</color>
+    <color name="dark_on_light_disable_hint">#61000000</color>
+    <color name="dark_on_light_divider">#1F000000</color>
+
+    <!-- Default colors for Android's black theme -->
+    <color name="dark_theme_status_bar">#000000</color>
+    <color name="dark_theme_toolbar">#212121</color>
+    <color name="dark_theme_background">#303030</color>
+    <color name="dark_theme_dialog">#424242</color>
+
+    <!-- Default colors for Android's light theme -->
+    <color name="light_theme_status_bar">#E0E0E0</color>
+    <color name="light_theme_toolbar">#F5F5F5</color>
+    <color name="light_theme_background">#FAFAFA</color>
+    <color name="light_theme_dialog">#FFFFFF</color>
+    <!-- endregion -->
+
+</resources>

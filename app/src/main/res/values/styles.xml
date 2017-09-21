@@ -1,0 +1,52 @@
+<resources>
+
+    <!-- region Theme -->
+    <style name="AppTheme" parent="Theme.AppCompat">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <!-- Disable default action bar for all layouts. -->
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <!-- Replace the text selection toolbar colors. -->
+        <item name="windowActionModeOverlay">true</item>
+        <item name="actionModeBackground">@color/colorPrimaryDark</item>
+        <item name="actionBarStyle">@color/colorPrimaryDark</item>
+        <!-- Status bar with dark icons -->
+        <item name="android:windowLightStatusBar">true</item>
+    </style>
+    <!-- endregion -->
+
+    <!-- region AppBar & Toolbar -->
+    <style name="AppTheme.AppBar" parent="ThemeOverlay.AppCompat.Dark"/>
+
+    <style name="AppTheme.AppBar.Toolbar.Popup" parent="ThemeOverlay.AppCompat.Dark"/>
+
+    <style name="AppTheme.AppBar.Toolbar.Title" parent="Base.TextAppearance.Widget.AppCompat.Toolbar.Title">
+        <item name="android:textColor">@color/dark_on_light_primary</item>
+    </style>
+
+    <style name="AppTheme.AppBar.Toolbar.Subtitle" parent="Base.TextAppearance.Widget.AppCompat.Toolbar.Subtitle">
+        <item name="android:textColor">@color/dark_on_light_secondary</item>
+    </style>
+    <!-- endregion  -->
+
+    <!-- region Dialogs -->
+    <style name="AppTheme.Dialog" parent="Theme.AppCompat.Dialog.Alert"/>
+    <!-- endregion -->
+
+    <!-- region Buttons -->
+    <style name="AppTheme.Button" parent="Widget.AppCompat.Button"/>
+
+    <style name="AppTheme.Theme.Button.Colored.Background.Accent" parent="Widget.AppCompat.Button">
+        <item name="colorButtonNormal">@color/colorAccent</item>
+    </style>
+
+    <style name="AppTheme.Button.Transparent" parent="Widget.AppCompat.Button.Borderless"/>
+
+    <style name="AppTheme.Button.Transparent.Colored.Text.Accent" parent="Widget.AppCompat.Button.Borderless.Colored">
+        <item name="android:textColor">@color/colorAccent</item>
+    </style>
+    <!-- endregion -->
+
+</resources>
