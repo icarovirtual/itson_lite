@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">Ligadão</string>
+    <string name="app_name">Ligadão Lite</string>
 
     <!-- region Quick setting -->
     <string name="quick_setting_label_off">Não tá ligadão</string>
