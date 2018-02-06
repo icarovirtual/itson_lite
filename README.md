@@ -1,4 +1,5 @@
-# itson_lite
+![Imgur](https://i.imgur.com/TlgJHka.png?1)
+
 Source code for a simplified version of my Android app "It's On".
 
 # Contents
@@ -12,7 +13,7 @@ This project also features examples of unit testing in apps. To show how to test
 
 The source code is in written and documented in English and the app is translated in both English and Brazillian Portuguese.
 
-The original app "It's On" (or "Ligadão") is available in the Play Store [here](https://play.google.com/store/apps/details?id=icaro.not.br.itson).
+The original app "It's On" (or "Ligadão") is available in the Play Store [here](https://play.google.com/store/apps/details?id=br.not.sitedoicaro.itson).
 
 # Usage
 Clone the repository and build using Android Studio after making sure you have all the dependencies installed in your Android SDK.
