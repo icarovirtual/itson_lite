@@ -1,5 +1,6 @@
 package br.not.sitedoicaro.itson.service;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -8,7 +9,7 @@ import android.os.Build;
 import android.provider.Settings;
 import android.service.quicksettings.Tile;
 import android.service.quicksettings.TileService;
-import android.support.annotation.RequiresApi;
+import androidx.annotation.RequiresApi;
 
 import br.not.sitedoicaro.itson.R;
 import br.not.sitedoicaro.itson.business.ScreenManager;
@@ -94,6 +95,7 @@ public class QuickSettingsService extends TileService {
     }
 
     /** Register the click and calculate the time the user spent with the quick setting active. */
+    @SuppressLint("ApplySharedPref")
     private void processClickAnalytics(boolean isDeactivating) {
         if (!isDeactivating) {
             // If the use is activating, save the initial time
@@ -102,6 +104,7 @@ public class QuickSettingsService extends TileService {
     }
 
     /** Persist the tile state. */
+    @SuppressLint("ApplySharedPref")
     private void persistTileState(boolean isTileActive) {
         sharedPreferences.edit().putBoolean(PREF_QUICK_SETTING_STATE, isTileActive).commit();
     }

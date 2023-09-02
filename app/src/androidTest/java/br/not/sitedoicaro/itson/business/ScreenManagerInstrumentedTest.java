@@ -1,10 +1,9 @@
 package br.not.sitedoicaro.itson.business;
 
 import android.content.ContentResolver;
-import android.support.test.filters.MediumTest;
-import android.support.test.rule.ActivityTestRule;
-import android.support.test.runner.AndroidJUnit4;
-import android.support.test.uiautomator.UiObjectNotFoundException;
+import androidx.test.rule.ActivityTestRule;
+import androidx.test.ext.junit.runners.AndroidJUnit4;
+import androidx.test.uiautomator.UiObjectNotFoundException;
 
 import org.junit.After;
 import org.junit.Before;
@@ -17,32 +16,42 @@ import br.not.sitedoicaro.itson.ui.activity.MainActivity;
 import static br.not.sitedoicaro.itson.util.ContextUtil.getContext;
 import static br.not.sitedoicaro.itson.util.PermissionUtil.disableModifySystemSettings;
 import static br.not.sitedoicaro.itson.util.PermissionUtil.enableModifySystemSettings;
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.greaterThan;
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertThat;
 
 @RunWith(AndroidJUnit4.class)
-@MediumTest
 public class ScreenManagerInstrumentedTest {
 
     // region Fields
-    /** Saves the device's original screen off timeout to restore after a test if necessary. */
+
+    /**
+     * Saves the device's original screen off timeout to restore after a test
+     * if necessary.
+     */
     private float originalScreenOffTimeout;
     /**
-     * Indicates if it's necessary to restore the device's original screen off timeout after a test.
+     * Indicates if it's necessary to restore the device's original screen off
+     * timeout after a test.
      * <p>
-     * Set to {@code true} inside the test function so {@link ScreenManagerInstrumentedTest#restoreOriginalScreenOffTimeout()}
+     * Set to {@code true} inside the test function so
+     * {@link ScreenManagerInstrumentedTest#restoreOriginalScreenOffTimeout()}
      * is executed and the value is restored.
      */
     private boolean shouldRestoreScreenOffTimeout;
-    // endregion
+
+    // endregion Fields
 
     /** The test depends on running this activity first. */
-    @Rule public ActivityTestRule<MainActivity> mainActivityActivityTestRule = new ActivityTestRule<>(MainActivity.class, true, true);
+    @Rule public ActivityTestRule<MainActivity> mainActivityActivityTestRule =
+            new ActivityTestRule<>(MainActivity.class, true, true);
 
     // region Helper
 
-    /** Save the device's screen off timeout to restore at the end of each test if necessary. */
+    /**
+     * Save the device's screen off timeout to restore at the end of each test
+     * if necessary.
+     */
     @Before
     public void saveOriginalScreenOffTimeout() {
         originalScreenOffTimeout = ScreenManager.getScreenOffTimeout(getContext().getContentResolver());
@@ -57,7 +66,8 @@ public class ScreenManagerInstrumentedTest {
             ScreenManager.setScreenOffTimeout(getContext().getContentResolver(), originalScreenOffTimeout);
         }
     }
-    // endregion
+
+    // endregion Helper
 
     /** Can retrieve the current screen off timeout. */
     @Test
@@ -66,7 +76,10 @@ public class ScreenManagerInstrumentedTest {
         assertThat(screenOffTimeout, greaterThan(0f));
     }
 
-    /** Setting screen off timeout fails because the app lacks the permission to modify the system settings. */
+    /**
+     * Setting screen off timeout fails because the app lacks the permission to
+     * modify the system settings.
+     */
     @Test(expected = SecurityException.class)
     public void cannotScreenOffTimeout() throws UiObjectNotFoundException {
         disableModifySystemSettings(mainActivityActivityTestRule.getActivity());
@@ -83,7 +96,8 @@ public class ScreenManagerInstrumentedTest {
         float newScreenOffTimeout = 5;
         ContentResolver contentResolver = getContext().getContentResolver();
         float originalScreenOffTimeout = ScreenManager.getScreenOffTimeout(contentResolver);
-        // Guarantee that the device's current timeout is not the same we are testing to avoid false positives
+        // Guarantee that the device's current timeout is not the same we are
+        // testing to avoid false positives
         if (originalScreenOffTimeout == newScreenOffTimeout) {
             newScreenOffTimeout = 10;
         }

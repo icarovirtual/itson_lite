@@ -3,14 +3,14 @@ package br.not.sitedoicaro.android.ui.activity;
 import android.annotation.SuppressLint;
 import android.app.Application;
 import android.content.Context;
-import android.support.annotation.IdRes;
-import android.support.annotation.LayoutRes;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.design.widget.CoordinatorLayout;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
+import androidx.annotation.IdRes;
+import androidx.annotation.LayoutRes;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.coordinatorlayout.widget.CoordinatorLayout;
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.TextView;
@@ -80,7 +80,7 @@ public class BaseActivity<T extends Application> extends AppCompatActivity {
 
     /** Setup an additional view that can cover the toolbar. */
     public void setOverlayView(@LayoutRes int layoutResId) {
-        FrameLayout overlayRoot = (FrameLayout) findViewById(R.id.material_overlay);
+        FrameLayout overlayRoot = findViewById(R.id.material_overlay);
         overlayRoot.setVisibility(View.VISIBLE);
         getLayoutInflater().inflate(layoutResId, overlayRoot, true);
     }
@@ -90,7 +90,7 @@ public class BaseActivity<T extends Application> extends AppCompatActivity {
         Context context = getApplicationContext();
         String packageName = getPackageName();
         // Setup the toolbar
-        int toolbarId = context.getResources().getIdentifier(getToolbarIdName(), ID_RES, packageName);
+        @SuppressLint("DiscouragedApi") int toolbarId = context.getResources().getIdentifier(getToolbarIdName(), ID_RES, packageName);
         if (toolbarId != INVALID_ID) {
             setToolbar(toolbarId);
         }
@@ -98,10 +98,10 @@ public class BaseActivity<T extends Application> extends AppCompatActivity {
         if (supportActionBar != null) {
             supportActionBar.setDisplayShowTitleEnabled(false);
         }
-        titleView = (TextView) findViewById(R.id.toolbar_title);
-        subtitleView = (TextView) findViewById(R.id.toolbar_subtitle);
+        titleView = findViewById(R.id.toolbar_title);
+        subtitleView = findViewById(R.id.toolbar_subtitle);
         // Setup the coordinator layout
-        int coordinatorLayoutId = context.getResources().getIdentifier(getCoordinatorLayoutIdName(), ID_RES, packageName);
+        @SuppressLint("DiscouragedApi") int coordinatorLayoutId = context.getResources().getIdentifier(getCoordinatorLayoutIdName(), ID_RES, packageName);
         if (coordinatorLayoutId != INVALID_ID) {
             setCoordinatorLayout(coordinatorLayoutId);
         }
@@ -109,6 +109,7 @@ public class BaseActivity<T extends Application> extends AppCompatActivity {
     // endregion
 
     public T getCustomApplication() {
+        //noinspection unchecked
         return (T) getApplication();
     }
 
@@ -122,7 +123,7 @@ public class BaseActivity<T extends Application> extends AppCompatActivity {
 
     /** Set the coordinator layout from its id. */
     public final void setCoordinatorLayout(@IdRes int coordinatorId) {
-        coordinatorLayout = (CoordinatorLayout) findViewById(coordinatorId);
+        coordinatorLayout = findViewById(coordinatorId);
     }
 
     /** Get the coordinator layout. */
@@ -141,7 +142,7 @@ public class BaseActivity<T extends Application> extends AppCompatActivity {
 
     /** Set the toolbar from its id. */
     public final void setToolbar(@IdRes int toolbarId) {
-        toolbar = (Toolbar) findViewById(toolbarId);
+        toolbar = findViewById(toolbarId);
         setSupportActionBar(toolbar);
     }
 
