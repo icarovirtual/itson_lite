@@ -1,7 +1,7 @@
 package br.not.sitedoicaro.itson.ui.presenter;
 
 import android.content.Intent;
-import android.databinding.ObservableBoolean;
+import androidx.databinding.ObservableBoolean;
 
 import br.not.sitedoicaro.android.ui.dialog.DialogUtil;
 import br.not.sitedoicaro.android.util.BrowserUtil;

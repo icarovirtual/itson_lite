@@ -2,9 +2,8 @@ package br.not.sitedoicaro.itson.util;
 
 import android.app.Activity;
 import android.content.Context;
-import android.support.annotation.Nullable;
-
-import static android.support.test.InstrumentationRegistry.getInstrumentation;
+import androidx.annotation.Nullable;
+import androidx.test.platform.app.InstrumentationRegistry;
 
 /** Provides functions to access the app's context. */
 public class ContextUtil {
@@ -18,7 +17,7 @@ public class ContextUtil {
     public static Context getContext(@Nullable Activity activity) {
         Context context;
         if (activity == null) {
-            context = getInstrumentation().getTargetContext();
+            context = InstrumentationRegistry.getInstrumentation().getTargetContext();
         } else {
             context = activity.getApplicationContext();
         }

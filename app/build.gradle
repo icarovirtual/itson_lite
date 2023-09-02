@@ -11,23 +11,12 @@ project.ext.set("versionCode", 1)
 project.ext {
     //  region SDK versions
     minSdkVersion = 23
-    compileAndTargetAndroidVersion = 26
-    buildToolsVersion = '25.0.3'
-    // endregion
-    // region Dependencies versions
-    runnerVersion = '1.0.1'
-    espressoCoreVersion = '3.0.1'
-    uiautomatorVersion = '2.1.2'
-    junitVersion = '4.12'
-    androidSupportVersion = '26.0.0-alpha1'
+    compileAndTargetAndroidVersion = 33
     // endregion
 }
 // endregion
 
 android {
-    compileSdkVersion project.ext.compileAndTargetAndroidVersion
-    buildToolsVersion project.ext.buildToolsVersion
-
     dataBinding {
         enabled = true
     }
@@ -36,8 +25,9 @@ android {
     defaultConfig {
         minSdkVersion project.ext.minSdkVersion
         targetSdkVersion project.ext.compileAndTargetAndroidVersion
+        compileSdk project.ext.compileAndTargetAndroidVersion
 
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
     }
     // endregion
 
@@ -46,6 +36,8 @@ android {
         debug {
             applicationIdSuffix ".lite.debug"
             versionNameSuffix "-debug"
+
+            testCoverageEnabled true
         }
         release {
             applicationIdSuffix ".lite.debug"
@@ -54,39 +46,40 @@ android {
     // endregion
 
     // region productFlavors
-    flavorDimensions "default"
+    flavorDimensions = ["default"]
 
     productFlavors {
         base {
             applicationId "br.not.sitedoicaro.itson"
             dimension "default"
-
-            resConfigs "pt-rBR", "en-rUS"
+            resourceConfigurations += ['pt-rBR', 'en-rUS']
 
             versionCode project.versionCode
             versionName "${versionNameMajor}.${versionNameMinor}.${versionNamePatch}"
         }
     }
+    namespace 'br.not.sitedoicaro.itson'
+    testNamespace "br.not.sitedoicaro.itson.test"
     // endregion
-    buildToolsVersion '26.0.2'
 }
 
 // region dependencies
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
     // region Testing
-    androidTestCompile('com.android.support.test:runner:' + project.ext.runnerVersion, {
-        exclude group: 'com.android.support'
-    })
-    androidTestCompile('com.android.support.test.espresso:espresso-core:' + project.ext.espressoCoreVersion, {
-        exclude group: 'com.android.support'
-    })
-    androidTestCompile 'com.android.support.test.uiautomator:uiautomator-v18:' + project.ext.uiautomatorVersion
-    testCompile 'junit:junit:' + project.ext.junitVersion
+    //noinspection GradleDependency
+    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+    //noinspection GradleDependency
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+    //noinspection GradleDependency
+    androidTestImplementation 'androidx.test:rules:1.2.0'
+    //noinspection GradleDependency
+    androidTestImplementation 'androidx.test.uiautomator:uiautomator:2.2.0'
     // endregion
     // region Android Support
-    compile 'com.android.support:design:' + project.ext.androidSupportVersion
-    compile 'com.android.support:appcompat-v7:' + project.ext.androidSupportVersion
+    //noinspection GradleDependency
+    implementation 'com.google.android.material:material:1.0.0'
+    //noinspection GradleDependency
+    implementation 'androidx.appcompat:appcompat:1.0.0'
     // endregion
 }
 // endregion

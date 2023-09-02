@@ -2,7 +2,7 @@ package br.not.sitedoicaro.android.ui.dialog;
 
 import android.app.Activity;
 import android.content.DialogInterface;
-import android.support.v7.app.AlertDialog;
+import androidx.appcompat.app.AlertDialog;
 
 /** Provides easier creation of frequently used dialogs. */
 public class DialogUtil {

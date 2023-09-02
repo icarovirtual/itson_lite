@@ -1,14 +1,16 @@
 package br.not.sitedoicaro.android.util;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 
 /** Provides utilities to validate the usage of intents for browsers. */
 public class BrowserUtil {
 
     /** Check if the system as any web browser installed so we can redirect an intent. */
+    @SuppressLint("QueryPermissionsNeeded")
     public static void checkSystemHasBrowser(String url, PackageManager packageManager, OnHasBrowser onHasBrowser, @Nullable OnNoBrowser onNoBrowser) {
         final Intent browserIntent = new Intent(Intent.ACTION_VIEW);
         browserIntent.setData(Uri.parse(url));
